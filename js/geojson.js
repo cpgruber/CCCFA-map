@@ -1,3 +1,66 @@
+var species = {
+  bayscallops:{
+    displayName:"bay scallop",
+    pageLink:"#"
+  },
+  blackseabass:{
+    displayName:"black sea bass",
+    pageLink:"#"
+  },
+  bluefish:{
+    displayName:"bluefish",
+    pageLink:"bluefish"
+  },
+  cod:{
+    displayName:"cod",
+    pageLink:"cod"
+  },
+  conch:{
+    displayName:"conch",
+    pageLink:"conch"
+  },
+  dogfish:{
+    displayName:"dogfish",
+    pageLink:"dogfish"
+  },
+  flounder:{
+    displayName:"flounder",
+    pageLink:"#"
+  },
+  lobster:{
+    displayName:"lobster",
+    pageLink:"lobster"
+  },
+  mackerel:{
+    displayName:"mackerel",
+    pageLink:"#"
+  },
+  monkfish:{
+    displayName:"monkfish",
+    pageLink:"monkfish"
+  },
+  pollock:{
+    displayName:"pollock",
+    pageLink:"#"
+  },
+  seascallops:{
+    displayName:"sea scallop",
+    pageLink:"sea-scallop"
+  },
+  skate:{
+    displayName:"skate",
+    pageLink:"skate"
+  },
+  stripedbass:{
+    displayName:"striped bass",
+    pageLink:"striped-bass"
+  },
+  tuna:{
+    displayName:"bluefin tuna",
+    pageLink:"bluefin-tuna"
+  }
+}
+
 var bathy = {"type":"FeatureCollection",
 "features":[
 	{"type":"Feature",

@@ -114,6 +114,11 @@ fishingAreas.eachLayer(function (layer){
 
 //fix all this below//////
 
+for (fish in species){
+  console.log(species[fish])
+}
+
+
 // var fishesIhave = ["dogfish","pollock","tuna","bluefish","monkfish","skate","lobster","seascallops", "stripedbass", "flounder"];
 // var fishLinks = ["dogfish","cod","bluefin-tuna","bluefish","monkfish","skate","lobster","sea-scallop", "striped-bass", "cod"];
 //

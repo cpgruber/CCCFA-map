@@ -113,20 +113,26 @@ fishingAreas.eachLayer(function (layer){
 //end data load//
 
 //fix all this below//////
+function makeIcons(){
+  var icons = document.getElementById('icons');
+  for (fish in species){
+    var icon = document.createElement('div');
+    icon.className = 'icon';
+    icon.setAttribute('species',fish);
+    var link = document.createElement('a');
+    link.setAttribute('href','http://www.capecodfishermen.opg/'+species[fish].pageLink);
+    var image = document.createElement('img');
+    image.setAttribute('src','images/'+fish+'.png');
+    image.setAttribute('alt',fish);
 
-for (fish in species){
-  console.log(species[fish])
+    link.appendChild(image);
+    icon.appendChild(link);
+    icons.appendChild(icon);
+  }
 }
+makeIcons();
 
 
-// var fishesIhave = ["dogfish","pollock","tuna","bluefish","monkfish","skate","lobster","seascallops", "stripedbass", "flounder"];
-// var fishLinks = ["dogfish","cod","bluefin-tuna","bluefish","monkfish","skate","lobster","sea-scallop", "striped-bass", "cod"];
-//
-// for (var i=0;i<fishesIhave.length;i++){
-//   var icon = "<div class='icon' id='"+fishesIhave[i]+"'><a href='http://www.capecodfishermen.org/"+fishLinks[i]+"' target='_blank'><img src='images/"+fishesIhave[i]+".png' /></div>";
-//   $("#icons").append(icon);
-// }
-//
 // pointsLyr.on("touchstart mouseover mousedown click", function(e){
 //   var area = e.layer.feature.properties.Name;
 //   e.layer.openPopup();

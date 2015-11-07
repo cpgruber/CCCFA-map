@@ -132,54 +132,48 @@ function makeIcons(){
 }
 makeIcons();
 
+//area hover
+pointsLyr.on("touchstart mouseover mousedown click", function(e){
+  var area = e.layer.feature.properties.Name;
+  e.layer.openPopup();
+  var fish;
+  fishingAreas.eachLayer(function (layer){
+    if (layer.feature.properties.Name == area){
+      fish = layer.feature.properties.Fish;
+      layer.setStyle({
+        fillColor:"#ff0000;",
+        weight:0,
+        fillOpacity:0.2
+      });
+    }else{
+      layer.setStyle({
+        fillColor:"#ff0000;",
+        weight:0,
+        fillOpacity:0
+      });
+    }
+  });
+  for (var i=0;i<fish.length;i++){
+    button = document.querySelector('.icon[species="'+fish[i]+'"]');
+    if(button){button.className = 'icon hovered';}
+  }
+});
 
-// pointsLyr.on("touchstart mouseover mousedown click", function(e){
-//   var area = e.layer.feature.properties.Name;
-//   e.layer.openPopup();
-//   var icons, species;
-//   fishingAreas.eachLayer(function (layer){
-//     if (layer.feature.properties.Name == area){
-//       species = layer.feature.properties.Species;
-//       icons = layer.feature.properties.Icons;
-//       layer.setStyle({
-//         fillColor:"#ff0000;",
-//         weight:0,
-//         fillOpacity:0.2
-//       });
-//     }else{
-//       layer.setStyle({
-//         fillColor:"#ff0000;",
-//         weight:0,
-//         fillOpacity:0
-//       });
-//     }
-//   });
-//   var fishList = species.split(",");
-//   var iconList = icons.split(",");
-//
-//   for (var i = 0; i<iconList.length;i++){
-//     var thisFish = iconList[i];
-//     if (fishesIhave.indexOf(thisFish) != -1){
-//       var jqFish = "#" + thisFish;
-//       $(jqFish).stop(true).animate({opacity:1},500)
-//     }
-//   }
-// });
-//
-// pointsLyr.on("touchend mouseout mouseup", function(e){
-//   e.layer.closePopup();
-//   fishingAreas.eachLayer(function(layer){
-//     layer.setStyle({
-//       fillColor:"#ff0000;",
-//       weight:0,
-//       fillOpacity:0
-//     });
-//   });
-//   for (var i = 0;i<fishesIhave.length;i++){
-//     var jqFish = "#"+fishesIhave[i];
-//     $(jqFish).stop(true).animate({opacity:0.2},500)
-//   };
-// });
+//area unhover
+pointsLyr.on("touchend mouseout mouseup", function(e){
+  e.layer.closePopup();
+  fishingAreas.eachLayer(function(layer){
+    layer.setStyle({
+      fillColor:"#ff0000;",
+      weight:0,
+      fillOpacity:0
+    });
+  });
+  var hovered = document.querySelectorAll('.hovered');
+  for (var i = 0;i<hovered.length;i++){
+    hovered[i].className = 'icon';
+  };
+});
 //
 // $(".icon").on("mouseover", function() {
 //   ptGrp.clearLayers();

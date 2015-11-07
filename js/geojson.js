@@ -101,17 +101,14 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Cape Cod Bay",
-			"Species":"Bay Scallops,Bluefish,Dogfish,Flounder,Lobster,Mackerel,Quahogs,Sea Clams,Sea Scallops,Squid,Striped Bass,Tuna",
-			"Icons":"Bay Scallops,bluefish,dogfish,flounder,lobster,Mackerel,Quahogs,Sea Clams,seascallops,Squid,stripedbass,tuna",
-			"Other":"Bay Scallops,Mackerel,Quahogs,Sea Clams,Squid"
+      "Fish":['bayscollops','bluefish','dogfish','flounder','lobster','mackerel','quahogs','seaclams',
+      'seascallops','squid','stripedbass','tuna']
 		},
 		"geometry":{"type":"Polygon","coordinates":[[[-70.5095666645434,41.98206575646208],[-70.4738386066901,41.9987388501271],[-70.42620119621904,42.00826633222118],[-70.34521759841834,42.041612519550995],[-70.29281644690013,42.05352187216869],[-70.2611652841249,42.05012499542295],[-70.24043851874063,42.02309008405206],[-70.2305257179047,42.00686913722984],[-70.19277788491092,41.99635697960355],[-70.17372292072253,41.9987388501271],[-70.15228608601058,42.00350259117408],[-70.13084925129851,42.00350259117408],[-70.11179428711011,41.989211368032784],[-70.09988493449237,41.96301079227368],[-70.0975030639687,41.92490086389694],[-70.0975030639687,41.896318417614225],[-70.09035745239817,41.860590359761034],[-70.08559371135101,41.81533481981353],[-70.10464867553941,41.79389798510158],[-70.13799486286922,41.78198863248372],[-70.16657730915182,41.77960676196017],[-70.19992349648157,41.77722489143673],[-70.24279716590559,41.770079279866025],[-70.27614335323528,41.76531553881887],[-70.31425328161208,41.76531553881887],[-70.33807198684764,41.76531553881887],[-70.37380004470083,41.76293366829532],[-70.39285500888928,41.770079279866025],[-70.41905558464839,41.77484302091318],[-70.45001990145465,41.789134244054424],[-70.46192925407234,41.789134244054424],[-70.4714567361666,41.79389798510158],[-70.49765731192565,41.803425467195666],[-70.5167122761141,41.820098560860515],[-70.50480292349636,41.843917266096014],[-70.5000391824492,41.86535410080802],[-70.5000391824492,41.89870028813783],[-70.5095666645434,41.912991511279074],[-70.52662494776155,41.94883530192254],[-70.52295938848374,41.971427864977954],[-70.5095666645434,41.98206575646208]]]}},
 	{"type":"Feature",
 		"properties":{
 			"Name":"Stellwagen Bank",
-			"Species":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Striped Bass,Tuna",
-			"Icons":"bluefish,dogfish,flounder,lobster,pollock,seascallops,stripedbass,tuna",
-			"Other":""
+      "Fish":['bluefish','dogfish','flounder','lobster','pollock','seascallops','stripedbass','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -119,9 +116,8 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Nantucket Sound",
-			"Species":"Bay Scallops,Black Sea Bass,Bluefish,Butterfish,Conch,Fluke,Lobster,Mackerel,Quahogs,Scup,Squid,Striped Bass",
-			"Icons":"bluefish,lobster,stripedbass",
-			"Other":"Bay Scallops,Black Sea Bass,Butterfish,Conch,Fluke,Mackerel,Quahogs,Scup,Squid"
+      "Fish":['bayscallops','blackseabass','bluefish','butterfish','conch','fluke','lobster','mackerel',
+      'quahogs','scup','squid','stripedbass']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -129,9 +125,8 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Inshore Waters",
-			"Species":"Bluefish,Dogfish,Flounder,Mackerel,Monkfish,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Skate,Squid,Striped Bass,Tuna",
-			"Icons":"bluefish,dogfish,flounder,monkfish,lobster,pollock,seascallops,skate,stripedbass,tuna",
-			"Other":"Mackerel,Squid"
+      "Fish":['bluefish','dogfish','flounder','mackerel','monkfish','lobster','pollock','seascallops',
+      'skate','squid','stripedbass','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -139,9 +134,7 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Southern New England",
-			"Species":"Fluke,Lobster,Monkfish,Sea Clams,Sea Scallops,Skate,Tilefish,Tuna",
-			"Icons":"lobster,monkfish,seascallops,skate,tuna",
-			"Other":"Fluke,Sea Clams,Tilefish"
+      "Fish":['fluke','lobster','monkfish','seaclams','seascallops','skate','tilefish','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -149,9 +142,8 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Great South Channel",
-			"Species":"Bluefish,Dogfish,Flounder,Lobster,Monkfish,Pollock &amp; Other Groundfish,Sea Clams,Sea Scallops,Skate,Striped Bass,Tuna",
-			"Icons":"bluefish,dogfish,flounder,lobster,monkfish,pollock,seascallops,skate,stripedbass,tuna",
-			"Other":"Sea Clams"
+      "Fish":['bluefish','dogfish','flounder','lobster','monkfish','pollock','seaclams','seascallops',
+      'skate','stripedbass','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -159,9 +151,8 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Georges Bank",
-			"Species":"Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Clams,Sea Scallops,Skate,Swordfish,Tuna&#58; Bluefin&#44; Yellowfin&#44; Bigeye",
-			"Icons":"dogfish,flounder,lobster,pollock,seascallops,skate,tuna",
-			"Other":"Sea Clams,Swordfish"
+      "Fish":['dogfish','flounder','lobster','pollock','seaclams','seascallops','skate',
+      'swordfish','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -169,9 +160,7 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Gulf of Maine",
-			"Species":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Tuna",
-			"Icons":"bluefish,dogfish,flounder,lobster,pollock,seascallops,tuna",
-			"Other":""
+      "Fish":['bluefish','dogfish','flounder','lobster','pollock','seascallops','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -181,14 +170,14 @@ var fishingAreas = {"type":"FeatureCollection",
 
 var areaPts= {"type":"FeatureCollection",
 "features":[
-{"type":"Feature","properties":{"Name":"Gulf of Maine"},"geometry":{"type":"Point","coordinates":[-69.202880859375,42]}},
-{"type":"Feature","properties":{"Id":"","Name":"Cape Cod Bay"},"geometry":{"type":"Point","coordinates":[-70.301513671875,41.89409955811395]}},
-{"type":"Feature","properties":{"Id":"","Name":"Inshore Waters"},"geometry":{"type":"Point","coordinates":[-69.80712890625,41.75492216766298]}},
-{"type":"Feature","properties":{"Id":"","Name":"Nantucket Sound"},"geometry":{"type":"Point","coordinates":[-70.24658203125,41.48389104267175]}},
-{"type":"Feature","properties":{"Id":"","Name":"Southern New England"},"geometry":{"type":"Point","coordinates":[-70.286279296875,41.1]}},
-{"type":"Feature","properties":{"Id":"","Name":"Georges Bank"},"geometry":{"type":"Point","coordinates":[-68.170166015625,41.22074559016745]}},
-{"type":"Feature","properties":{"Name":"Stellwagen Bank"},"geometry":{"type":"Point","coordinates":[-70.30975341796875,42.30575300304638]}},
-{"type":"Feature","properties":{"Name":"Great South Channel"},"geometry":{"type":"Point","coordinates":[-69,41.3]}}
+  {"type":"Feature","properties":{"Name":"Gulf of Maine"},"geometry":{"type":"Point","coordinates":[-69.202880859375,42]}},
+  {"type":"Feature","properties":{"Id":"","Name":"Cape Cod Bay"},"geometry":{"type":"Point","coordinates":[-70.301513671875,41.89409955811395]}},
+  {"type":"Feature","properties":{"Id":"","Name":"Inshore Waters"},"geometry":{"type":"Point","coordinates":[-69.80712890625,41.75492216766298]}},
+  {"type":"Feature","properties":{"Id":"","Name":"Nantucket Sound"},"geometry":{"type":"Point","coordinates":[-70.24658203125,41.48389104267175]}},
+  {"type":"Feature","properties":{"Id":"","Name":"Southern New England"},"geometry":{"type":"Point","coordinates":[-70.286279296875,41.1]}},
+  {"type":"Feature","properties":{"Id":"","Name":"Georges Bank"},"geometry":{"type":"Point","coordinates":[-68.170166015625,41.22074559016745]}},
+  {"type":"Feature","properties":{"Name":"Stellwagen Bank"},"geometry":{"type":"Point","coordinates":[-70.30975341796875,42.30575300304638]}},
+  {"type":"Feature","properties":{"Name":"Great South Channel"},"geometry":{"type":"Point","coordinates":[-69,41.3]}}
 ]};
 
 var ports = { "type": "FeatureCollection",

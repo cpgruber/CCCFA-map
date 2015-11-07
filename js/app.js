@@ -1,8 +1,7 @@
+//initialize mapbox and map
 L.mapbox.accessToken = 'pk.eyJ1IjoiY2hhc2VncnViZXIiLCJhIjoidV9tdHNYSSJ9.RRyvDLny4YwDwzPCeOJZrA';
-
 var map = L.mapbox.map('map', 'chasegruber.81bd1c23', { minZoom: 4, maxZoom:9, zoomControl:false})
          .setView([41.8, -69.5], 8);
-
 map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
@@ -10,20 +9,23 @@ map.scrollWheelZoom.disable();
 // Disable tap handler, if present.
 if (map.tap){map.tap.disable()};
 
+//declare map features
 var bathy = L.mapbox.featureLayer(bathy).addTo(map);
 var fishingAreas = L.mapbox.featureLayer(fishingAreas).addTo(map);
 var points = L.geoJson(areaPts);
 var ptGrp = L.featureGroup().addTo(map);
 var ports = L.geoJson(ports);
 
+//load and style map data
 ports.eachLayer(function(pt){
   var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
-    .setIcon(L.divIcon({
-      className: "portMarker",
-      iconSize:[20,20],
-      popupAnchor:[-3,-10]
-    }))
-    .bindPopup(pt.feature.properties.Name)
+    .setIcon(
+      L.divIcon({
+        className: "portMarker",
+        iconSize:[20,20],
+        popupAnchor:[-3,-10]
+      })
+    ).bindPopup(pt.feature.properties.Name)
     .addTo(map);
 
   marker.on("touchstart mouseover mousedown click", function(e){
@@ -32,7 +34,6 @@ ports.eachLayer(function(pt){
   marker.on("touchend mouseout mouseup", function(e){
     marker.closePopup();
   });
-
 });
 
 points.eachLayer(function(pt){
@@ -42,18 +43,20 @@ points.eachLayer(function(pt){
       iconSize:[20,20],
       popupAnchor:[-3,-10]
     }))
-    .addTo(ptGrp)
+    .addTo(ptGrp);
 });
 
 var pointsLyr = L.mapbox.featureLayer().addTo(map);
 pointsLyr.on('layeradd', function (e) {
   var marker = e.layer,
       feature = marker.feature;
-  marker.setIcon(L.divIcon({
+  marker.setIcon(
+    L.divIcon({
       className: "seethru",
       iconSize: [30,30],
       popupAnchor:[-3,-10]
-  }));
+    })
+  );
   marker.bindPopup(feature.properties.Name);
 });
 pointsLyr.setGeoJSON(areaPts);
@@ -107,109 +110,113 @@ fishingAreas.eachLayer(function (layer){
   });
 });
 
-var fishesIhave = ["dogfish","pollock","tuna","bluefish","monkfish","skate","lobster","seascallops", "stripedbass", "flounder"];
-var fishLinks = ["dogfish","cod","bluefin-tuna","bluefish","monkfish","skate","lobster","sea-scallop", "striped-bass", "cod"];
+//end data load//
 
-for (var i=0;i<fishesIhave.length;i++){
-  var icon = "<div class='icon' id='"+fishesIhave[i]+"'><a href='http://www.capecodfishermen.org/"+fishLinks[i]+"' target='_blank'><img src='icons/"+fishesIhave[i]+".png' /></div>";
-  $("#icons").append(icon);
-}
+//fix all this below//////
 
-pointsLyr.on("touchstart mouseover mousedown click", function(e){
-  var area = e.layer.feature.properties.Name;
-  e.layer.openPopup();
-  var icons, species;
-  fishingAreas.eachLayer(function (layer){
-    if (layer.feature.properties.Name == area){
-      species = layer.feature.properties.Species;
-      icons = layer.feature.properties.Icons;
-      layer.setStyle({
-        fillColor:"#ff0000;",
-        weight:0,
-        fillOpacity:0.2
-      });
-    }else{
-      layer.setStyle({
-        fillColor:"#ff0000;",
-        weight:0,
-        fillOpacity:0
-      });
-    }
-  });
-  var fishList = species.split(",");
-  var iconList = icons.split(",");
-
-  for (var i = 0; i<iconList.length;i++){
-    var thisFish = iconList[i];
-    if (fishesIhave.indexOf(thisFish) != -1){
-      var jqFish = "#" + thisFish;
-      $(jqFish).stop(true).animate({opacity:1},500)
-    }
-  }
-});
-
-pointsLyr.on("touchend mouseout mouseup", function(e){
-  e.layer.closePopup();
-  fishingAreas.eachLayer(function(layer){
-    layer.setStyle({
-      fillColor:"#ff0000;",
-      weight:0,
-      fillOpacity:0
-    });
-  });
-  for (var i = 0;i<fishesIhave.length;i++){
-    var jqFish = "#"+fishesIhave[i];
-    $(jqFish).stop(true).animate({opacity:0.2},500)
-  };
-});
-
-$(".icon").on("mouseover", function() {
-  ptGrp.clearLayers();
-  var fish = $(this).attr('id');
-  $(this).stop(true).animate({opacity:1},500);
-  fishingAreas.eachLayer(function(layer) {
-  var fishList = layer.feature.properties.Icons.split(",");
-
-  if (fishList.indexOf(fish) !== -1){
-    points.eachLayer(function(pt){
-      if(pt.feature.properties.Name == layer.feature.properties.Name){
-      var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
-        .setIcon(L.divIcon({
-          className: "chosen",
-          iconSize:[20,20],
-          popupAnchor:[-3,-10]
-        }))
-        .addTo(ptGrp)
-      }
-    });
-  }else{
-    points.eachLayer(function(pt){
-      if(pt.feature.properties.Name == layer.feature.properties.Name){
-      var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
-        .setIcon(L.divIcon({
-          className: "marker",
-          iconSize:[20,20],
-          popupAnchor:[-3,-10]
-        }))
-        .addTo(ptGrp)
-      }
-    });
-    }
-  });
-});
-
-$(".icon").on("mouseout", function() {
-  $(this).stop(true).animate({opacity:0.2},500);
-  map.removeLayer(pointsLyr);
-  ptGrp.clearLayers();
-  points.eachLayer(function(pt){
-    var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
-      .setIcon(L.divIcon({
-        className: "marker",
-        iconSize:[20,20],
-        popupAnchor:[-3,-10]
-      }))
-    .addTo(ptGrp)
-  });
-  map.addLayer(pointsLyr);
-});
+// var fishesIhave = ["dogfish","pollock","tuna","bluefish","monkfish","skate","lobster","seascallops", "stripedbass", "flounder"];
+// var fishLinks = ["dogfish","cod","bluefin-tuna","bluefish","monkfish","skate","lobster","sea-scallop", "striped-bass", "cod"];
+//
+// for (var i=0;i<fishesIhave.length;i++){
+//   var icon = "<div class='icon' id='"+fishesIhave[i]+"'><a href='http://www.capecodfishermen.org/"+fishLinks[i]+"' target='_blank'><img src='images/"+fishesIhave[i]+".png' /></div>";
+//   $("#icons").append(icon);
+// }
+//
+// pointsLyr.on("touchstart mouseover mousedown click", function(e){
+//   var area = e.layer.feature.properties.Name;
+//   e.layer.openPopup();
+//   var icons, species;
+//   fishingAreas.eachLayer(function (layer){
+//     if (layer.feature.properties.Name == area){
+//       species = layer.feature.properties.Species;
+//       icons = layer.feature.properties.Icons;
+//       layer.setStyle({
+//         fillColor:"#ff0000;",
+//         weight:0,
+//         fillOpacity:0.2
+//       });
+//     }else{
+//       layer.setStyle({
+//         fillColor:"#ff0000;",
+//         weight:0,
+//         fillOpacity:0
+//       });
+//     }
+//   });
+//   var fishList = species.split(",");
+//   var iconList = icons.split(",");
+//
+//   for (var i = 0; i<iconList.length;i++){
+//     var thisFish = iconList[i];
+//     if (fishesIhave.indexOf(thisFish) != -1){
+//       var jqFish = "#" + thisFish;
+//       $(jqFish).stop(true).animate({opacity:1},500)
+//     }
+//   }
+// });
+//
+// pointsLyr.on("touchend mouseout mouseup", function(e){
+//   e.layer.closePopup();
+//   fishingAreas.eachLayer(function(layer){
+//     layer.setStyle({
+//       fillColor:"#ff0000;",
+//       weight:0,
+//       fillOpacity:0
+//     });
+//   });
+//   for (var i = 0;i<fishesIhave.length;i++){
+//     var jqFish = "#"+fishesIhave[i];
+//     $(jqFish).stop(true).animate({opacity:0.2},500)
+//   };
+// });
+//
+// $(".icon").on("mouseover", function() {
+//   ptGrp.clearLayers();
+//   var fish = $(this).attr('id');
+//   $(this).stop(true).animate({opacity:1},500);
+//   fishingAreas.eachLayer(function(layer) {
+//   var fishList = layer.feature.properties.Icons.split(",");
+//
+//   if (fishList.indexOf(fish) !== -1){
+//     points.eachLayer(function(pt){
+//       if(pt.feature.properties.Name == layer.feature.properties.Name){
+//       var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
+//         .setIcon(L.divIcon({
+//           className: "chosen",
+//           iconSize:[20,20],
+//           popupAnchor:[-3,-10]
+//         }))
+//         .addTo(ptGrp)
+//       }
+//     });
+//   }else{
+//     points.eachLayer(function(pt){
+//       if(pt.feature.properties.Name == layer.feature.properties.Name){
+//       var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
+//         .setIcon(L.divIcon({
+//           className: "marker",
+//           iconSize:[20,20],
+//           popupAnchor:[-3,-10]
+//         }))
+//         .addTo(ptGrp)
+//       }
+//     });
+//     }
+//   });
+// });
+//
+// $(".icon").on("mouseout", function() {
+//   $(this).stop(true).animate({opacity:0.2},500);
+//   map.removeLayer(pointsLyr);
+//   ptGrp.clearLayers();
+//   points.eachLayer(function(pt){
+//     var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
+//       .setIcon(L.divIcon({
+//         className: "marker",
+//         iconSize:[20,20],
+//         popupAnchor:[-3,-10]
+//       }))
+//     .addTo(ptGrp)
+//   });
+//   map.addLayer(pointsLyr);
+// });

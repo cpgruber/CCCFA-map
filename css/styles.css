@@ -48,7 +48,7 @@ body {
   width:20px;
   border-radius:100%;
   border:2px solid white;
-  background-image:url('icons/harbor.png');
+  background-image:url('../images/harbor.png');
   background-size:cover;
   background-position:center;
 }

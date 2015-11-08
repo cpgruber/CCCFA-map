@@ -110,7 +110,6 @@ fishingAreas.eachLayer(function (layer){
   });
 });
 //end data load//
-
 function makeIcons(){
   var icons = document.getElementById('icons');
   for (fish in species){
@@ -122,9 +121,13 @@ function makeIcons(){
     var image = document.createElement('img');
     image.setAttribute('src','images/'+fish+'.png');
     image.setAttribute('alt',fish);
-
+    var p = document.createElement('p');
+    p.textContent = species[fish].displayName;
     link.appendChild(image);
+    link.appendChild(p);
     icon.appendChild(link);
+    icon.addEventListener("mouseover",iconHover);
+    icon.addEventListener("mouseout",iconUnhover);
     icons.appendChild(icon);
   }
 }
@@ -173,53 +176,51 @@ pointsLyr.on("touchend mouseout mouseup", function(e){
   };
 });
 
-var icons = document.getElementsByClassName('icon');
-for (var i=0;i<icons.length;i++){
-  icons[i].addEventListener("mouseover",function(){
-    ptGrp.clearLayers();
-    var fish = this.getAttribute("species");
-    this.className = "icon hovered";
-    fishingAreas.eachLayer(function(layer){
-      if (layer.feature.properties.Fish.indexOf(fish) !== -1){
-        points.eachLayer(function(pt){
-          if(pt.feature.properties.Name == layer.feature.properties.Name){
-          var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
-            .setIcon(L.divIcon({
-              className: "chosen",
-              iconSize:[20,20],
-              popupAnchor:[-3,-10]
-            }))
-            .addTo(ptGrp)
-          }
-        });
-      }else{
-        points.eachLayer(function(pt){
-          if(pt.feature.properties.Name == layer.feature.properties.Name){
-          var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
-            .setIcon(L.divIcon({
-              className: "marker",
-              iconSize:[20,20],
-              popupAnchor:[-3,-10]
-            }))
-            .addTo(ptGrp)
-          }
-        });
+function iconHover(){
+  ptGrp.clearLayers();
+  var fish = this.getAttribute("species");
+  this.className = "icon hovered";
+  fishingAreas.eachLayer(function(layer){
+    if (layer.feature.properties.Fish.indexOf(fish) !== -1){
+      points.eachLayer(function(pt){
+        if(pt.feature.properties.Name == layer.feature.properties.Name){
+        var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
+          .setIcon(L.divIcon({
+            className: "chosen",
+            iconSize:[20,20],
+            popupAnchor:[-3,-10]
+          }))
+          .addTo(ptGrp)
         }
-    })
+      });
+    }else{
+      points.eachLayer(function(pt){
+        if(pt.feature.properties.Name == layer.feature.properties.Name){
+        var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
+          .setIcon(L.divIcon({
+            className: "marker",
+            iconSize:[20,20],
+            popupAnchor:[-3,-10]
+          }))
+          .addTo(ptGrp)
+        }
+      });
+      }
+  })
+}
+
+function iconUnhover(){
+  this.className = "icon"
+  map.removeLayer(pointsLyr);
+  ptGrp.clearLayers();
+  points.eachLayer(function(pt){
+    var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
+      .setIcon(L.divIcon({
+        className: "marker",
+        iconSize:[20,20],
+        popupAnchor:[-3,-10]
+      }))
+    .addTo(ptGrp)
   });
-  icons[i].addEventListener("mouseout",function(){
-    this.className = "icon"
-    map.removeLayer(pointsLyr);
-    ptGrp.clearLayers();
-    points.eachLayer(function(pt){
-      var marker = L.marker([pt.feature.geometry.coordinates[1],pt.feature.geometry.coordinates[0]])
-        .setIcon(L.divIcon({
-          className: "marker",
-          iconSize:[20,20],
-          popupAnchor:[-3,-10]
-        }))
-      .addTo(ptGrp)
-    });
-    map.addLayer(pointsLyr);
-  });
+  map.addLayer(pointsLyr);
 }

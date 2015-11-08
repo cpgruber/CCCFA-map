@@ -1,11 +1,15 @@
 var species = {
   bayscallops:{
     displayName:"bay scallop",
-    pageLink:"#"
+    pageLink:"bay-scallops"
   },
   blackseabass:{
     displayName:"black sea bass",
-    pageLink:"#"
+    pageLink:"black-sea-bass"
+  },
+  tuna:{
+    displayName:"bluefin tuna",
+    pageLink:"bluefin-tuna"
   },
   bluefish:{
     displayName:"bluefish",
@@ -54,10 +58,6 @@ var species = {
   stripedbass:{
     displayName:"striped bass",
     pageLink:"striped-bass"
-  },
-  tuna:{
-    displayName:"bluefin tuna",
-    pageLink:"bluefin-tuna"
   }
 }
 
@@ -185,81 +185,50 @@ var ports = { "type": "FeatureCollection",
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-69.950474, 41.688616]},
         "properties": {
-                "Name":"Chatham Harbor/Chatham Fish Pier",
-                "Fleet":"Vessel-1, Vessel-2, Vessel-3",
-                "Fleet-Icon":"vessel-1, vessel-2, vessel-3",
-                "Fishing-Areas-Covered":"Cape Cod Bay,Stellwagen Bank,Nantucket Sound,Inshore Waters,Southern New England,Great South Channel,Georges Bank,Gulf of Maine",
-                "Species-Targeted":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Striped Bass,Tuna",
-                "Species-Targeted-Icon":"bluefish,dogfish,flounder,lobster,pollock,seascallops,stripedbass,tuna",
-                "Fleet-Fishing-Season":"May-November",
-                "Other":""
+          "Name":"Chatham Harbor"
         }
-        },
+      },
+      { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [-70.070474, 41.668616]},
+        "properties": {
+          "Name":"Harwichport"
+        }
+      },
+      { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [-70.240474, 41.738616]},
+        "properties": {
+          "Name":"Barnstable Harbor"
+        }
+      },
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.026306, 41.927872]},
         "properties": {
-                "Name":"Wellfleet Harbor",
-                "Fleet":"Vessel-1, Vessel-2, Vessel-3",
-                "Fleet-Icon":"vessel-1, vessel-2, vessel-3",
-                "Fishing-Areas-Covered":"Cape Cod Bay,Stellwagen Bank,Nantucket Sound,Inshore Waters,Southern New England,Great South Channel,Georges Bank,Gulf of Maine",
-                "Species-Targeted":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Striped Bass,Tuna",
-                "Species-Targeted-Icon":"bluefish,dogfish,flounder,lobster,pollock,seascallops,stripedbass,tuna",
-                "Fleet-Fishing-Season":"May-November",
-                "Other":""
+          "Name":"Wellfleet Harbor"
         }
-        },
+      },
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.180544, 42.049069]},
         "properties": {
-                "Name":"Provincetown Harbor",
-                "Fleet":"Vessel-1, Vessel-2, Vessel-3",
-                "Fleet-Icon":"vessel-1, vessel-2, vessel-3",
-                "Fishing-Areas-Covered":"Cape Cod Bay,Stellwagen Bank,Nantucket Sound,Inshore Waters,Southern New England,Great South Channel,Georges Bank,Gulf of Maine",
-                "Species-Targeted":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Striped Bass,Tuna",
-                "Species-Targeted-Icon":"bluefish,dogfish,flounder,lobster,pollock,seascallops,stripedbass,tuna",
-                "Fleet-Fishing-Season":"May-November",
-                "Other":""
+          "Name":"Provincetown Harbor"
         }
-        },
+      },
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.275644, 41.64929]},
         "properties": {
-                "Name":"Hyannis Inner Harbor",
-                "Fleet":"Vessel-1, Vessel-2, Vessel-3",
-                "Fleet-Icon":"vessel-1, vessel-2, vessel-3",
-                "Fishing-Areas-Covered":"Cape Cod Bay,Stellwagen Bank,Nantucket Sound,Inshore Waters,Southern New England,Great South Channel,Georges Bank,Gulf of Maine",
-                "Species-Targeted":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Striped Bass,Tuna",
-                "Species-Targeted-Icon":"bluefish,dogfish,flounder,lobster,pollock,seascallops,stripedbass,tuna",
-                "Fleet-Fishing-Season":"May-November",
-                "Other":""
+          "Name":"Hyannis Inner Harbor"
         }
-        },
+      },
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.603576, 41.546186]},
         "properties": {
-                "Name":"Falmouth Inner Harbor",
-                "Fleet":"Vessel-1, Vessel-2, Vessel-3",
-                "Fleet-Icon":"vessel-1, vessel-2, vessel-3",
-                "Fishing-Areas-Covered":"Cape Cod Bay,Stellwagen Bank,Nantucket Sound,Inshore Waters,Southern New England,Great South Channel,Georges Bank,Gulf of Maine",
-                "Species-Targeted":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Striped Bass,Tuna",
-                "Species-Targeted-Icon":"bluefish,dogfish,flounder,lobster,pollock,seascallops,stripedbass,tuna",
-                "Fleet-Fishing-Season":"May-November",
-                "Other":""
+          "Name":"Falmouth Inner Harbor"
         }
-        },
+      },
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.50316, 41.771599]},
         "properties": {
-                "Name":"East Canal Entrance Harbor",
-                "Fleet":"Vessel-1, Vessel-2, Vessel-3",
-                "Fleet-Icon":"vessel-1, vessel-2, vessel-3",
-                "Fishing-Areas-Covered":"Cape Cod Bay,Stellwagen Bank,Nantucket Sound,Inshore Waters,Southern New England,Great South Channel,Georges Bank,Gulf of Maine",
-                "Species-Targeted":"Bluefish,Dogfish,Flounder,Lobster,Pollock &amp; Other Groundfish,Sea Scallops,Striped Bass,Tuna",
-                "Species-Targeted-Icon":"bluefish,dogfish,flounder,lobster,pollock,seascallops,stripedbass,tuna",
-                "Fleet-Fishing-Season":"May-November",
-                "Other":""
+          "Name":"East Canal Entrance Harbor"
         }
-        }
-
-       ]
-     }
+      }
+    ]
+  }

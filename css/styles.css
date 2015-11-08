@@ -43,6 +43,7 @@ a,a:visited,a:active,a:hover{
   width:220px;
   height:100vh;
   overflow-y: scroll;
+  background:white;
 }
 .icon p{
   text-decoration: none;
@@ -115,4 +116,10 @@ border-top:20px solid #000;
 .leaflet-popup{
   opacity:0.85;
   font-family:"Helvetica",sans-serif;
+}
+.leaflet-bottom.leaflet-left{
+  top:0;
+  bottom:auto;
+  left:auto;
+  right:0;
 }

@@ -195,7 +195,6 @@ var ports = { "type": "FeatureCollection",
                 "Other":""
         }
         },
-
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.026306, 41.927872]},
         "properties": {
@@ -209,7 +208,6 @@ var ports = { "type": "FeatureCollection",
                 "Other":""
         }
         },
-
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.180544, 42.049069]},
         "properties": {
@@ -223,7 +221,6 @@ var ports = { "type": "FeatureCollection",
                 "Other":""
         }
         },
-
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.275644, 41.64929]},
         "properties": {
@@ -237,7 +234,6 @@ var ports = { "type": "FeatureCollection",
                 "Other":""
         }
         },
-
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.603576, 41.546186]},
         "properties": {
@@ -251,8 +247,6 @@ var ports = { "type": "FeatureCollection",
                 "Other":""
         }
         },
-
-
       { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-70.50316, 41.771599]},
         "properties": {

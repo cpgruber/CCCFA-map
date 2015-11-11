@@ -1,7 +1,7 @@
 //initialize mapbox and map
 L.mapbox.accessToken = 'pk.eyJ1IjoiY2hhc2VncnViZXIiLCJhIjoidV9tdHNYSSJ9.RRyvDLny4YwDwzPCeOJZrA';
-var map = L.mapbox.map('map', 'chasegruber.81bd1c23', { minZoom: 4, maxZoom:9, zoomControl:false})
-         .setView([41.8, -69.5], 8);
+var map = L.mapbox.map('map', 'chasegruber.81bd1c23', {zoomControl:false})
+        //  .setView([41.8, -69.5], 8);
 map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
@@ -175,6 +175,14 @@ pointsLyr.on("touchend mouseout mouseup", function(e){
     hovered[i].className = 'icon';
   };
 });
+
+window.addEventListener("resize",function(){fitBounds(pointsLyr)});
+window.addEventListener("load",function(){fitBounds(pointsLyr)});
+function fitBounds(layer){
+  var bounds = layer.getBounds();
+  // bounds._southWest.lat -= 0.5;
+  map.fitBounds(bounds)
+}
 
 function iconHover(){
   ptGrp.clearLayers();

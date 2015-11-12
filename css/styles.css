@@ -6,7 +6,6 @@ body {
   padding:0;
   font-family:'Franklin Gothic Book','Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
   width:100vw;
-  font-size: 62.5%;
 }
 a,a:visited,a:active,a:hover{
   text-decoration: none;
@@ -19,26 +18,30 @@ a,a:visited,a:active,a:hover{
 #icons{
   width:100vw;
   background:white;
+  border-collapse: collapse;
 }
 .icon{
-  display:inline-block;
   text-align: center;
   width:20vw;
-  margin:0;
   transition: 0.75s ease;
   background: white;
   cursor:pointer;
+}
+.icon a{
+  display:block;
+  height:100%;
+  width:100%;
 }
 .icon p{
   text-decoration: none;
   text-transform: capitalize;
   color:black;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1em;
   transition:0.75s ease;
 }
 .icon img{
-  margin-top:1vh;
+  margin-top:0.5vh;
   max-width:18vw;
   max-height:7vh;
   transition: 0.75s ease;

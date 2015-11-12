@@ -112,12 +112,17 @@ fishingAreas.eachLayer(function (layer){
 //end data load//
 function makeIcons(){
   var icons = document.getElementById('icons');
+  var i=0;
+  var row;
   for (fish in species){
-    var icon = document.createElement('div');
+    if (i%5==0){
+      row = icons.insertRow();
+    }
+    var icon = row.insertCell();
     icon.className = 'icon';
     icon.setAttribute('species',fish);
     var link = document.createElement('a');
-    link.setAttribute('href','http://www.capecodfishermen.opg/'+species[fish].pageLink);
+    link.setAttribute('href','http://www.capecodfishermen.org/'+species[fish].pageLink);
     var image = document.createElement('img');
     image.setAttribute('src','images/'+fish+'.png');
     image.setAttribute('alt',fish);
@@ -128,7 +133,7 @@ function makeIcons(){
     icon.appendChild(link);
     icon.addEventListener("mouseover",iconHover);
     icon.addEventListener("mouseout",iconUnhover);
-    icons.appendChild(icon);
+    i++;
   }
 }
 makeIcons();
@@ -180,7 +185,6 @@ window.addEventListener("resize",function(){fitBounds(pointsLyr)});
 window.addEventListener("load",function(){fitBounds(pointsLyr)});
 function fitBounds(layer){
   var bounds = layer.getBounds();
-  // bounds._southWest.lat -= 0.5;
   map.fitBounds(bounds)
 }
 

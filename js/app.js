@@ -170,15 +170,6 @@ pointsLyr.on("touchstart mouseover mousedown click", function(e){
   }
 });
 
-/*
-layer.on('mouseover mousemove', function(e){
-  var hover_bubble = new L.Rrose({ offset: new L.Point(0,-10), closeButton: false, autoPan: false })
-    .setContent(feature.properties.name)
-    .setLatLng(e.latlng)
-    .openOn(rrose_map);
-});
-*/
-
 //area unhover
 pointsLyr.on("touchend mouseout mouseup", function(e){
   e.layer.closePopup();

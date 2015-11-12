@@ -1,8 +1,13 @@
 //initialize mapbox and map
 L.mapbox.accessToken = 'pk.eyJ1IjoiY2hhc2VncnViZXIiLCJhIjoidV9tdHNYSSJ9.RRyvDLny4YwDwzPCeOJZrA';
-var map = L.mapbox.map('map', 'chasegruber.81bd1c23', {zoomControl:false})
+
+var southWest = L.latLng(40.5, -71),
+    northEast = L.latLng(43, -67.5),
+    bounds = L.latLngBounds(southWest, northEast);
+
+var map = L.mapbox.map('map', 'chasegruber.81bd1c23', {zoomControl:false, maxBounds:bounds})
         //  .setView([41.8, -69.5], 8);
-map.dragging.disable();
+// map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
@@ -165,6 +170,15 @@ pointsLyr.on("touchstart mouseover mousedown click", function(e){
   }
 });
 
+/*
+layer.on('mouseover mousemove', function(e){
+  var hover_bubble = new L.Rrose({ offset: new L.Point(0,-10), closeButton: false, autoPan: false })
+    .setContent(feature.properties.name)
+    .setLatLng(e.latlng)
+    .openOn(rrose_map);
+});
+*/
+
 //area unhover
 pointsLyr.on("touchend mouseout mouseup", function(e){
   e.layer.closePopup();
@@ -185,6 +199,7 @@ window.addEventListener("resize",function(){fitBounds(pointsLyr)});
 window.addEventListener("load",function(){fitBounds(pointsLyr)});
 function fitBounds(layer){
   var bounds = layer.getBounds();
+  console.log(bounds);
   map.fitBounds(bounds)
 }
 

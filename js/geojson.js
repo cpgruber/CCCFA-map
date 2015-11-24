@@ -108,7 +108,7 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Stellwagen Bank",
-      "Fish":['bluefish','dogfish','flounder','lobster','pollock','seascallops','stripedbass','tuna']
+      "Fish":['bluefish','cod','dogfish','flounder','lobster','pollock','seascallops','stripedbass','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -125,8 +125,8 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Inshore Waters",
-      "Fish":['bluefish','dogfish','flounder','mackerel','monkfish','lobster','pollock','seascallops',
-      'skate','squid','stripedbass','tuna']
+      "Fish":['bluefish','dogfish','flounder','mackerel','monkfish','lobster','cod','pollock','seascallops',
+      'skate','squid','stripedbass','tuna','seaclams']
 		},
 		"geometry":{
 			"type":"Polygon",
@@ -142,7 +142,7 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Great South Channel",
-      "Fish":['bluefish','dogfish','flounder','lobster','monkfish','pollock','seaclams','seascallops',
+      "Fish":['bluefish','dogfish','flounder','lobster','monkfish','cod','pollock','seaclams','seascallops',
       'skate','stripedbass','tuna']
 		},
 		"geometry":{
@@ -151,7 +151,7 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Georges Bank",
-      "Fish":['dogfish','flounder','lobster','pollock','seaclams','seascallops','skate',
+      "Fish":['dogfish','flounder','lobster','pollock','cod','seaclams','seascallops','skate',
       'swordfish','tuna']
 		},
 		"geometry":{
@@ -160,7 +160,7 @@ var fishingAreas = {"type":"FeatureCollection",
 	{"type":"Feature",
 		"properties":{
 			"Name":"Gulf of Maine",
-      "Fish":['bluefish','dogfish','flounder','lobster','pollock','seascallops','tuna']
+      "Fish":['bluefish','dogfish','flounder','lobster','monkfish','hake','cod','pollock','seascallops','tuna']
 		},
 		"geometry":{
 			"type":"Polygon",
